@@ -72,6 +72,34 @@ static const uint8_t patterns[][3][BEAT_NOTES] PROGMEM = {
         {a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,xxx,f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2,xxx,d_2,d_2,d_2,d_2,d_2,d_2,d_2,d_2,d_2,d_2,d_2},
         {fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,xxx,d_2,d_2,d_2,d_2,d_2,d_2,d_2,d_2,d_2,d_2,d_2,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx},
         {a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,xxx,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,xxx,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1},
+    },{
+        /* 2. Zeile, 3. Takt */
+        {c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,
+         c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,
+         xxx,d_2,d_2,d_2,d_2,d_2,d_2,d_2,d_2,d_2,d_2,d_2,
+         xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,d_2,d_2,d_2},
+        {e_1,g_1,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
+         xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
+         b_1,c_2,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,xxx,
+         g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,xxx},
+        {xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
+         xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
+         f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,xxx,
+         f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,xxx},
+    },{
+        /* 2. Zeile, 4. Takt */
+        {e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,xxx,
+         c_1,c_1,c_1,c_1,c_1,xxx,e_1,e_1,e_1,e_1,e_1,xxx,
+         g_1,g_1,g_1,g_1,g_1,xxx,c_2,c_2,c_2,c_2,c_2,xxx,
+         e_2,e_2,e_2,e_2,e_2,xxx,g_2,g_2,g_2,g_2,g_2,xxx},
+        {g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,xxx,
+         xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
+         xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
+         e_1,e_1,e_1,e_1,e_1,xxx,g_1,g_1,g_1,g_1,g_1,xxx},
+        {e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,xxx,
+         xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
+         xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
+         xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx},
     }
 };
 
@@ -90,7 +118,7 @@ static const uint16_t freq[] PROGMEM = {
 
 static const uint8_t order[] = {
     0, 1, 1, 2,
-    3, 4, 5
+    3, 4, 5, 6, 7
 };
 
 
@@ -100,7 +128,7 @@ static void mix_hochzeit(void) {
         sample = 0;
         if (++note >= BEAT_NOTES) {
             note = 0;
-            if (++row >= ARRAY_SIZE(order)) row = 4; // skip intro
+            if (++row >= ARRAY_SIZE(order)) row = 5; // skip intro
         }
     }
 
