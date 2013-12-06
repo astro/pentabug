@@ -14,7 +14,7 @@ static uint8_t row;
 
 
 enum {
-    NOTE_LENGTH = 450,
+    NOTE_LENGTH = 400,
     BEAT_NOTES = 48,
     DUTY = 0xf000
 };
@@ -130,6 +130,11 @@ static void mix_hochzeit(void) {
             note = 0;
             if (++row >= ARRAY_SIZE(order)) row = 5; // skip intro
         }
+        uint8_t beat_p = note % 12;
+        if (beat_p == 0)
+          motor_on();
+        else if (note > 2 && beat_p > 0)
+          motor_off();
     }
 
     uint8_t	p = order[row];
