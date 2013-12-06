@@ -30,6 +30,16 @@ enum {
 /**
  * Transcribed from 
  *     http://www.klavier-noten.com/mendelssohn/hochzeitsmarsch-4-hands.htm
+ *
+ * 1/48 Beats
+ * 1th: 48×
+ * 2nd: 24×
+ * 4th * 1.5: 16×
+ * 4th: 12×
+ * 8th: 6×
+ * 16th: 3×
+ *
+ * Remember to leave some room between successive beats of the same note.
  */
 static const uint8_t patterns[][3][BEAT_NOTES] PROGMEM = {
     {
