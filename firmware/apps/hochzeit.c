@@ -14,7 +14,7 @@ static uint8_t row;
 
 
 enum {
-    NOTE_LENGTH = 550,
+    NOTE_LENGTH = 450,
     BEAT_NOTES = 48,
     DUTY = 0xf000
 };
@@ -29,7 +29,7 @@ enum {
 
 /**
  * Transcribed from 
- *     http://www.klavier-noten.com/mendelssohn/hochzeitsmarsch-4-hands.htm
+ *     http://www.fluegel-klavier.de/mendelssohn/hochzeitsmarsch.htm
  *
  * 1/48 Beats
  * 1th: 48×
@@ -44,19 +44,34 @@ enum {
 static const uint8_t patterns[][3][BEAT_NOTES] PROGMEM = {
     {
         /* 1. Zeile, 1. Takt */
-        {xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,a_2,a_2,xxx,a_2,a_2,xxx,a_2,a_2,xxx},
+        {xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,c_1,c_1,xxx,c_1,c_1,xxx,c_1,c_1,xxx},
         {xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx},
         {xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx},
     },{
         /* 1. Zeile, 2. + 3. Takt */
-        {a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,a_2,a_2,xxx,a_2,a_2,xxx,a_2,a_2,xxx},
+        {c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,c_1,c_1,xxx,c_1,c_1,xxx,c_1,c_1,xxx},
         {xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx},
         {xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx},
     },{
         /* 1. Zeile, 4. Takt */
-        {c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,xxx,xxx,xxx,c_3,c_3,xxx,c_3,c_3,xxx,c_3,c_3,xxx,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,xxx,xxx,xxx,c_3,c_3,xxx,c_3,c_3,xxx,c_3,c_3,xxx},
-        {a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,xxx,xxx,xxx,a_2,a_2,xxx,a_2,a_2,xxx,a_2,a_2,xxx,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,xxx,xxx,xxx,a_2,a_2,xxx,a_2,a_2,xxx,a_2,a_2,xxx},
+        {c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,xxx,xxx,xxx,c_1,c_1,xxx,c_1,c_1,xxx,c_1,c_1,xxx,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,xxx,xxx,xxx,c_1,c_1,xxx,c_1,c_1,xxx,c_1,c_1,xxx},
+        {e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,xxx,xxx,xxx,e_1,e_1,xxx,e_1,e_1,xxx,e_1,e_1,xxx,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,xxx,xxx,xxx,e_1,e_1,xxx,e_1,e_1,xxx,e_1,e_1,xxx},
         {xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx},
+    },{
+        /* 2. Zeile, 1. Takt */
+        {c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,xxx,xxx,xxx,c_1,c_1,xxx,c_1,c_1,xxx,c_1,c_1,xxx,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,xxx,xxx,xxx,c_1,c_1,xxx,c_1,c_1,xxx,c_1,c_1,xxx},
+        {e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,xxx,xxx,xxx,e_1,e_1,xxx,e_1,e_1,xxx,e_1,e_1,xxx,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,xxx,xxx,xxx,e_1,e_1,xxx,e_1,e_1,xxx,e_1,e_1,xxx},
+        {g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,xxx,xxx,xxx,g_1,g_1,xxx,g_1,g_1,xxx,g_1,g_1,xxx,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,xxx,xxx,xxx,g_1,g_1,xxx,g_1,g_1,xxx,g_1,g_1,xxx},
+    },{
+        /* 2. Zeile, 2. Takt */
+        {c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,xxx,b_2,b_2,b_2,b_2,b_2,b_2,b_2,b_2,b_2,b_2,b_2,b_2,b_2,b_2,b_2,b_2,xxx,fs2,fs2,fs2,fs2,fs2,fs2,xxx},
+        {fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,xxx,ds2,ds2,ds2,ds2,ds2,ds2,ds2,ds2,ds2,ds2,ds2,ds2,ds2,ds2,ds2,ds2,xxx,ds2,ds2,ds2,ds2,ds2,ds2,xxx},
+        {c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,xxx,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,xxx,a_1,a_1,a_1,a_1,a_1,a_1,xxx},
+    },{
+        /* 2. Zeile, 2. Takt */
+        {a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,xxx,f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2,xxx,d_2,d_2,d_2,d_2,d_2,d_2,d_2,d_2,d_2,d_2,d_2},
+        {fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,fs2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,xxx,d_2,d_2,d_2,d_2,d_2,d_2,d_2,d_2,d_2,d_2,d_2,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx},
+        {a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,xxx,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,xxx,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1},
     }
 };
 
@@ -74,7 +89,8 @@ static const uint16_t freq[] PROGMEM = {
 
 
 static const uint8_t order[] = {
-    0, 1, 1, 2
+    0, 1, 1, 2,
+    3, 4, 5
 };
 
 
@@ -84,7 +100,7 @@ static void mix_hochzeit(void) {
         sample = 0;
         if (++note >= BEAT_NOTES) {
             note = 0;
-            if (++row >= ARRAY_SIZE(order)) row = 1; // skip 0th row
+            if (++row >= ARRAY_SIZE(order)) row = 4; // skip intro
         }
     }
 
