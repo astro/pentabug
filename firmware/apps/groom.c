@@ -14,7 +14,7 @@ static uint8_t row;
 
 
 enum {
-    NOTE_LENGTH = 400,
+    NOTE_LENGTH = 420,
     BEAT_NOTES = 48,
     DUTY = 0xf000
 };
@@ -49,54 +49,72 @@ static const uint8_t patterns[][3][BEAT_NOTES] PROGMEM = {
         {xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx},
     },{
         /* 1. Zeile, 2. + 3. Takt */
-        {c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,c_2,c_2,xxx,c_2,c_2,xxx,c_2,c_2,xxx},
+        {c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,c_1,c_1,xxx,c_1,c_1,xxx,c_1,c_1,xxx},
         {xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx},
         {xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx},
     },{
         /* 1. Zeile, 4. Takt */
-        {c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,xxx,xxx,xxx,c_2,c_2,xxx,c_2,c_2,xxx,c_2,c_2,xxx,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,xxx,xxx,xxx,c_2,c_2,xxx,c_2,c_2,xxx,c_2,c_2,xxx},
-        {e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,xxx,xxx,xxx,e_2,e_2,xxx,e_2,e_2,xxx,e_2,e_2,xxx,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,xxx,xxx,xxx,e_2,e_2,xxx,e_2,e_2,xxx,e_2,e_2,xxx},
+        {c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,xxx,xxx,xxx,c_1,c_1,xxx,c_1,c_1,xxx,c_1,c_1,xxx,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,xxx,xxx,xxx,c_1,c_1,xxx,c_1,c_1,xxx,c_1,c_1,xxx},
+        {e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,xxx,xxx,xxx,e_1,e_1,xxx,e_1,e_1,xxx,e_1,e_1,xxx,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,xxx,xxx,xxx,e_1,e_1,xxx,e_1,e_1,xxx,e_1,e_1,xxx},
         {xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx},
     },{
         /* 2. Zeile, 1. Takt */
-        {c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,xxx,xxx,xxx,c_2,c_2,xxx,c_2,c_2,xxx,c_2,c_2,xxx,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,xxx,xxx,xxx,c_2,c_2,xxx,c_2,c_2,xxx,c_2,c_2,xxx},
-        {e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,xxx,xxx,xxx,e_2,e_2,xxx,e_2,e_2,xxx,e_2,e_2,xxx,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,xxx,xxx,xxx,e_2,e_2,xxx,e_2,e_2,xxx,e_2,e_2,xxx},
-        {g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,xxx,xxx,xxx,g_2,g_2,xxx,g_2,g_2,xxx,g_2,g_2,xxx,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,xxx,xxx,xxx,g_2,g_2,xxx,g_2,g_2,xxx,g_2,g_2,xxx},
+        {c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,xxx,xxx,xxx,c_1,c_1,xxx,c_1,c_1,xxx,c_1,c_1,xxx,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,xxx,xxx,xxx,c_1,c_1,xxx,c_1,c_1,xxx,c_1,c_1,xxx},
+        {e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,xxx,xxx,xxx,e_1,e_1,xxx,e_1,e_1,xxx,e_1,e_1,xxx,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,xxx,xxx,xxx,e_1,e_1,xxx,e_1,e_1,xxx,e_1,e_1,xxx},
+        {g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,xxx,xxx,xxx,g_1,g_1,xxx,g_1,g_1,xxx,g_1,g_1,xxx,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,xxx,xxx,xxx,g_1,g_1,xxx,g_1,g_1,xxx,g_1,g_1,xxx},
     },{
         /* 2. Zeile, 2. Takt */
-        {c_4,c_4,c_4,c_4,c_4,c_4,c_4,c_4,c_4,c_4,c_4,c_4,c_4,c_4,c_4,c_4,c_4,c_4,c_4,c_4,c_4,c_4,c_4,xxx,b_3,b_3,b_3,b_3,b_3,b_3,b_3,b_3,b_3,b_3,b_3,b_3,b_3,b_3,b_3,b_3,xxx,fs3,fs3,fs3,fs3,fs3,fs3,xxx},
-        {fs3,fs3,fs3,fs3,fs3,fs3,fs3,fs3,fs3,fs3,fs3,fs3,fs3,fs3,fs3,fs3,fs3,fs3,fs3,fs3,fs3,fs3,fs3,xxx,ds3,ds3,ds3,ds3,ds3,ds3,ds3,ds3,ds3,ds3,ds3,ds3,ds3,ds3,ds3,ds3,xxx,ds3,ds3,ds3,ds3,ds3,ds3,xxx},
-        {c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,xxx,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,xxx,a_2,a_2,a_2,a_2,a_2,a_2,xxx},
-    },{
-        /* 2. Zeile, 2. Takt */
-        {a_3,a_3,a_3,a_3,a_3,a_3,a_3,a_3,a_3,a_3,a_3,a_3,g_3,g_3,g_3,g_3,g_3,g_3,g_3,g_3,g_3,g_3,g_3,g_3,xxx,f_3,f_3,f_3,f_3,f_3,f_3,f_3,f_3,f_3,f_3,f_3,xxx,d_3,d_3,d_3,d_3,d_3,d_3,d_3,d_3,d_3,d_3,d_3},
-        {fs3,fs3,fs3,fs3,fs3,fs3,fs3,fs3,fs3,fs3,fs3,fs3,e_3,e_3,e_3,e_3,e_3,e_3,e_3,e_3,e_3,e_3,e_3,e_3,xxx,d_3,d_3,d_3,d_3,d_3,d_3,d_3,d_3,d_3,d_3,d_3,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx},
-        {a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,a_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,xxx,f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2,xxx,f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2},
-    },{
-        /* 2. Zeile, 3. Takt */
-        {c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,
-         c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,c_3,
-         xxx,d_3,d_3,d_3,d_3,d_3,d_3,d_3,d_3,d_3,d_3,d_3,
-         xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,d_3,d_3,d_3},
-        {e_2,g_2,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
-         xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
-         b_2,c_3,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,xxx,
-         g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,xxx},
+        {a_0,a_0,a_0,a_0,a_0,a_0,a_0,a_0,a_0,a_0,a_0,a_0,
+         a_0,a_0,a_0,a_0,a_0,a_0,a_0,a_0,a_0,a_0,a_0,a_0,
+         b_0,b_0,b_0,b_0,b_0,b_0,b_0,b_0,b_0,b_0,b_0,b_0,
+         b_0,b_0,b_0,b_0,xxx,b_0,b_0,b_0,b_0,b_0,b_0,xxx},
+        {a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,
+         a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,a_1,
+         b_1,b_1,b_1,b_1,b_1,b_1,b_1,b_1,b_1,b_1,b_1,b_1,
+         b_1,b_1,b_1,b_1,xxx,b_1,b_1,b_1,b_1,b_1,b_1,xxx},
         {xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
          xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
+         xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
+         xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx},
+    },{
+        /* 2. Zeile, 2. Takt */
+        {e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,
+         e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,e_1,xxx,
+         f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,xxx,
+         f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,f_1,xxx},
+        {e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,
+         e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,xxx,
          f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2,xxx,
          f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2,f_2,xxx},
+        {xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
+         xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
+         xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
+         xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx},
+    },{
+        /* 2. Zeile, 3. Takt */
+        {g_0,g_0,g_0,g_0,g_0,g_0,g_0,g_0,g_0,g_0,g_0,g_0,
+         g_0,g_0,g_0,g_0,g_0,g_0,g_0,g_0,g_0,g_0,g_0,xxx,
+         g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,xxx,
+         g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,xxx},
+        {g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,
+         g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,g_1,xxx,
+         e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,xxx,
+         e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,xxx},
+        {xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
+         xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
+         xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
+         xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx},
     },{
         /* 2. Zeile, 4. Takt */
-        {e_3,e_3,e_3,e_3,e_3,e_3,e_3,e_3,e_3,e_3,e_3,xxx,
+        {c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,c_1,xxx,
          c_2,c_2,c_2,c_2,c_2,xxx,e_2,e_2,e_2,e_2,e_2,xxx,
          g_2,g_2,g_2,g_2,g_2,xxx,c_3,c_3,c_3,c_3,c_3,xxx,
-         e_3,e_3,e_3,e_3,e_3,xxx,g_3,g_3,g_3,g_3,g_3,xxx},
-        {g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,g_2,xxx,
+         xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx},
+        {c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,c_2,xxx,
          xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
          xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
-         e_2,e_2,e_2,e_2,e_2,xxx,g_2,g_2,g_2,g_2,g_2,xxx},
-        {e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,e_2,xxx,
+         xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx},
+        {xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
          xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
          xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,
          xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx,xxx},
